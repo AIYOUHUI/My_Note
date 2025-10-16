@@ -16,11 +16,4 @@ create table 表名(
     字段 字段类型[comment '编号'],
     name varchar(20) comment '姓名'
 )[comment 表注释];
-2.1 数据类型
-create table employee(
-    id int comment '编号',
-    number varchar(10) comment '工号',
-    name varchar(10) comment '姓名',
-    gender char(1) comment '性别',
-    
-)
+2.1 表操作
