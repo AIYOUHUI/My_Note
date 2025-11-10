@@ -28,3 +28,4 @@ def Tensor_learning():
 if __name__ == "__main__":
     Tensor_learning()
 # （3）torch.tensor 根据指定数据创建张量，torch.Tensor 根据指定数据创建张量，根据形状创建张量
+# （4）张量的默认数据类型是float32，其可以在保证精度的前提下尽可能地节省空间
