@@ -16,16 +16,44 @@
 import torch
 def Tensor_learning():
     a = torch.tensor(7)
-    print(a,a.dtype)
+    print(a,type(a))
     print('-' * 30)
     b = torch.tensor([[1,2,3],[4,5,6]])
-    print(b,b.dtype)
+    print(b,type(b))
     print('-' * 30)
     c = torch.Tensor(2,3)  # 旧版写法，生成的是未初始化的随机值
     print(c)
     print('-' * 30)
 
-if __name__ == "__main__":
-    Tensor_learning()
 # （3）torch.tensor 根据指定数据创建张量，torch.Tensor 根据指定数据创建张量，根据形状创建张量
 # （4）张量的默认数据类型是float32，其可以在保证精度的前提下尽可能地节省空间
+
+    d = torch.ones(2,3)  # 创建全1张量
+    print(d,type(d))
+    print('-' * 30)
+    e = torch.ones_like(b)  # 基于b的形状创建全1张量
+    print(e,type(e))
+    print('-' * 30)
+    f = torch.full_like(e,255)  # 创建全为指定值的张量
+    print(f,type(f))
+    print('-' * 30)
+    g = torch.arange(5)  # 创建线性张量 tensor([0, 1, 2, 3, 4])
+    print(g)
+    h = torch.arange(0,10,2)  # tensor([0, 2, 4, 6, 8])
+    print(h)
+    print('-' * 30)
+    i = torch.linspace(1,10,5)  # 创建指定范围的线性张量 tensor([ 1.0000,  3.2500,  5.5000,  7.7500, 10.0000])
+    print(i)
+    print('-' * 30)
+    j = torch.rand(2,3)  # 创建随机张量
+    print(j)
+    print('-' * 30)
+    k = torch.randn(2,3)  # 创建符合正态分布的随机张量
+    print(k)
+    print('-' * 30)
+    l = torch.arange(5)
+    m = l.type(torch.float)  # 类型转换
+    print(l,'->',m)
+    
+if __name__ == "__main__":
+    Tensor_learning()
