@@ -57,3 +57,29 @@ def Tensor_learning():
     
 if __name__ == "__main__":
     Tensor_learning()
+
+import torch
+import numpy as np
+def Tensor_learning():
+    t1 = torch.tensor([1,2,3,5])
+    print(t1)
+    t2 = t1.numpy()  # 共享内存
+    t3 = t1.numpy().copy()  # 不共享内存
+    t1[3] = 100
+    print(t2)  # [  1   2   3 100]
+    print(t3)  # [1 2 3 5]
+    print('-' * 30)
+    n1 = np.array([11,22,33])
+    print(n1)
+    n1 = torch.from_numpy(n1)  # 共享内存
+    n2 = n1.detach().clone()  # 不共享内存
+    n1[2] = 99
+    print(n1)  # tensor([11, 22, 99], dtype=torch.int32)
+    print(n2)  # tensor([11, 22, 33], dtype=torch.int32)
+    print('-' * 30)
+    m1 = torch.tensor(7.7)
+    value = m1.item()  # 从标量张量中提取内容
+    print(value,type(value))  # 7.699999809265137 <class 'float'>
+
+if __name__ == "__main__":
+      Tensor_learning()
