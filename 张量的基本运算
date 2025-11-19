@@ -1,1 +1,23 @@
+import torch
+t1 = torch.tensor([1,2,3])
+print(t1)  # tensor([1, 2, 3])
+t1 += 10  
+print(t1)  # tensor([11, 12, 13])
+t1.add(10)  # 不修改原数据
+print(t1)  # tensor([11, 12, 13])
+t1.add_(10)  # 会修改原数据
+print(t1)  # tensor([21, 22, 23])
+print('-'*30)
 
+# 点乘指相同形状的张量对应位置的元素相乘
+t2 = torch.tensor([2,3,4])
+t3 = torch.arange(1,4)
+print(t2,t3)
+result = t2 * t3  # 另一种写法：result = t2.mul(t3)
+print(result)  # tensor([ 2,  6, 12])
+print('-'*30)
+# 矩阵乘法的前提条件需要满足A列=B行
+t4 = torch.tensor([[1,2,3],[4,5,6]])  # 两行三列
+t5 = torch.tensor([[4,5],[1,2],[3,6]])  # 三行两列
+result = t4 @ t5  # 另一种写法：result = t4.matmul(t5)
+print(result)
