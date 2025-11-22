@@ -26,3 +26,8 @@ DCL：数据控制语言，用来创建数据库用户、控制数据库的访�
 批量添加数据：insert into 表名(字段名1,字段名2...) values(值1,值2...),(值1,值2...)... (2)insert into 表名 values(值1,值2...),(值1,值2...)...
 修改数据：update 表名 set 字段名1 = 值1,字段名2 = 值2...where 条件
 删除数据：delete from 表名 where 条件
+2.3 DQL
+查询多个字段：select 字段1,字段2... from 表名 
+查询所有字段：select * from 表名
+设置别名：select 字段1 as 别名1,字段2 as 别名2... from 表名
+去除重复记录：select distinct 字段列表 from 表名
