@@ -21,3 +21,15 @@ t4 = torch.tensor([[1,2,3],[4,5,6]])  # 两行三列
 t5 = torch.tensor([[4,5],[1,2],[3,6]])  # 三行两列
 result = t4 @ t5  # 另一种写法：result = t4.matmul(t5)
 print(result)
+print('-'*30)
+
+# 常用运算函数
+n1 = torch.tensor([[1,2,3],[4,5,6]],dtype=float)
+print(n1.sum(dim=0))  # dim=0表示按列求和，dim=1表示按行求和：tensor([5., 7., 9.], dtype=torch.float64)
+print(n1.sum())  # 整体求和：tensor(21., dtype=torch.float64)
+print('-'*30)
+print(n1.max(dim=1))  # max()求最大值
+print('-'*30)
+print(n1.mean())  # mean()求平均值：tensor(3.5000, dtype=torch.float64)
+print('-'*30)
+print(n1.pow(2))  # pow()求次方：tensor([[ 1.,  4.,  9.],[16., 25., 36.]], dtype=torch.float64)
