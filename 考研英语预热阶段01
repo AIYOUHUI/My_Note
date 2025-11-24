@@ -1,35 +1,87 @@
-1.personally：就个人而言
-  approximately：近似地
-  occasionally：偶尔
-  overall：总的来说
-  broadly：概括地
-  hypothetically：假设地
-  henceforth：从今以后
-2.claim：索取
-  candidate：求职者
-  measured：慎重的
-  smart：整洁漂亮的
-  screen：筛选
-  subject：提交
-  specifically：特定的
-3.all the year round/all the day round：全年/全天
-  account for：导致/对...作出解释
-  at the peak of：在...高峰期
-  by comparison：相比之下
-  by and large：总的来说
-  be opposed to：反对
-  be put down to：归因于
-  do away with：废除
-  holiday paradise：度假胜地
-  next only to：仅次于
-  put into operation：投入使用/投入运营
-  put into effect：使...生效
-  passenger volume：客运量
-  show up：露出/出现
-  so as to：为的是
-  the maximum number of：最大数量的
-  take into account：考虑
-  take out of context：断章取义
-4.irrigate：灌溉 irritate：刺激 irrational：不理性的
-5.cope：vi.处理/对付 -> cope with sth
-6.enough -> sufficient/adequate：足够的
+import torch
+t1 = torch.tensor([1,2,3])
+print(t1)  # tensor([1, 2, 3])
+t1 += 10  
+print(t1)  # tensor([11, 12, 13])
+t1.add(10)  # 不修改原数据
+print(t1)  # tensor([11, 12, 13])
+t1.add_(10)  # 会修改原数据
+print(t1)  # tensor([21, 22, 23])
+print('-'*30)
+
+# 点乘指相同形状的张量对应位置的元素相乘
+t2 = torch.tensor([2,3,4])
+t3 = torch.arange(1,4)
+print(t2,t3)
+result = t2 * t3  # 另一种写法：result = t2.mul(t3)
+print(result)  # tensor([ 2,  6, 12])
+print('-'*30)
+# 矩阵乘法的前提条件需要满足A列=B行
+t4 = torch.tensor([[1,2,3],[4,5,6]])  # 两行三列
+t5 = torch.tensor([[4,5],[1,2],[3,6]])  # 三行两列
+result = t4 @ t5  # 另一种写法：result = t4.matmul(t5)
+print(result)
+print('-'*30)
+
+# 常用运算函数
+n1 = torch.tensor([[1,2,3],[4,5,6]],dtype=float)
+print(n1.sum(dim=0))  # dim=0表示按列求和，dim=1表示按行求和：tensor([5., 7., 9.], dtype=torch.float64)
+print(n1.sum())  # 整体求和：tensor(21., dtype=torch.float64)
+print('-'*30)
+print(n1.max(dim=1))  # max()求最大值
+print('-'*30)
+print(n1.mean())  # mean()求平均值：tensor(3.5000, dtype=torch.float64)
+print('-'*30)
+print(n1.pow(2))  # pow()求次方：tensor([[ 1.,  4.,  9.],[16., 25., 36.]], dtype=torch.float64)
+print('-'*30)
+
+n2 = torch.randint(2,3,(2,3))
+print(n2)  # tensor([[2, 2, 2],[2, 2, 2]])
+print('-'*30)
+n2 = torch.tensor([[6,9,9,2,8],
+                   [7,8,5,8,4],
+                   [7,4,3,9,3],
+                   [6,1,4,2,8],
+                   [1,2,5,7,4]])
+# 获取第二行的数据：行列索引
+print(n2[1])  # tensor([7, 8, 5, 8, 4])
+print(n2[1,:])  # tensor([7, 8, 5, 8, 4])
+print('-'*30)
+# 返回(1,2),(3,4)两个位置的元素：列表索引
+print(n2[[1,3],[2,4]])  # tensor([5, 8])
+print('-'*30)
+# 返回第二行到第五行中前两列的数据：范围索引
+print(n2[1:,:2])
+# 返回奇数行中的偶数列：范围索引
+print(n2[1::2,::2])  # 切片操作的完整语法是[start:stop:step]
+print('-'*30)
+
+n2 = torch.randint(1,10,(2,3,4))  # 创建2个3行4列的矩阵
+print(n2)
+print(n2[0,:,:])  # 获取0轴上的第一个元素
+print(n2[:,0,:])  # 获取1轴上的第一个元素
+print(n2[:,:,0])  # 获取2轴上的第一个元素
+print('-'*30)
+
+# reshape()函数可以保证在张量数据不变的前提下，改变数据的维度，将其转换成指定的形状
+n3 = torch.arange(6)
+print(n3.reshape(3,2))
+print('-'*30)
+# squeeze()函数会删除所有为1的维度，unsqueeze()函数会在指定的轴上增加一个1维度
+n3 = torch.tensor([[1,2,3],[4,5,6]])
+print(n3.unsqueeze(1))  # 在1维上添加一个维度
+n3 = torch.rand(size=(2,1,1,3,1))
+print(n3.squeeze().shape)  # torch.Size([2, 3])
+print('-'*30)
+# transpose()函数一次只能交换两个维度
+n3 = torch.randint(1,10,(2,3,4))
+print(n3)
+n4 = n3.transpose(0,2)  # 改变维度从(2,3,4)->(4,3,2)
+print(n4)
+# view()函数可以用于修改连续张量(内存中存储顺序与在张量中显示顺序相同)的形状
+# contiguous()函数基于张量中显示的顺序，修改内存中的存储顺序
+# is_contiguous()函数可以判断张量是否连续
+print(n3.is_contiguous())  # True
+print(n4.is_contiguous())  # False
+print(n3.view(4,3,2))  # 改变维度从(2,3,4)->(4,3,2)
+print('-'*30)
