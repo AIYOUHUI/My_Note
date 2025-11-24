@@ -73,3 +73,14 @@ print(n3.unsqueeze(1))  # 在1维上添加一个维度
 n3 = torch.rand(size=(2,1,1,3,1))
 print(n3.squeeze().shape)  # torch.Size([2, 3])
 print('-'*30)
+# transpose()函数一次只能交换两个维度
+n3 = torch.randint(1,10,(2,3,4))
+print(n3)
+n4 = n3.transpose(0,2)  # 改变维度从(2,3,4)->(4,3,2)
+print(n4)
+# view()函数可以用于修改连续张量(内存中存储顺序与在张量中显示顺序相同)的形状
+# contiguous()函数基于张量中显示的顺序，修改内存中的存储顺序
+# is_contiguous()函数可以判断张量是否连续
+print(n3.is_contiguous())  # True
+print(n4.is_contiguous())  # False
+print(n3.view(4,3,2))  # 改变维度从(2,3,4)->(4,3,2)
