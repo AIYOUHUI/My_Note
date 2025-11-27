@@ -1,0 +1,37 @@
+# 多元线性公式：y = w * x^T + b
+# 权重更新公式：w新 = w旧 - 学习率 * 梯度，偏置更新公式：b新 = b旧 - 学习率 * 梯度
+# 对损失函数求导，用自动微分模块帮我们计算，算出来的结果就是梯度，再结合反向传播，更新w和b
+# PyTorch不支持向量张量对向量张量的求导，只支持标量张量对向量张量的求导
+import torch
+# 1.定义变量，记录初始的权重w旧
+w = torch.tensor(10,requires_grad=True,dtype=torch.float)  # 参数1：初始值，参数2：是否自动微分，参数3：数据类型
+# 2.定义loss变量，表示损失函数
+loss = 2 * w ** 2
+# 3.打印梯度函数类型
+print(type(loss.grad_fn))  # <class 'MulBackward0'>
+# 4.计算梯度，计算完毕后会记录到w.grad属性中
+loss.backward()  # loss.sum().backward()可以保证loss是1个标量
+# 5.代入权重更新公式
+w.data = w.data - 0.01 * w.grad
+# 6.打印最终结果
+print(w)  # 更新后的权重
+
+# 清空上一次的梯度：x.grad.zero_()
+w = torch.tensor(10,requires_grad=True,dtype=torch.float)
+loss = w ** 2 + 20
+for i in range(1,101):  # 迭代100次求最优解
+    loss = w ** 2 + 20
+    if w.grad is not None:
+        w.grad.zero_()
+    loss.backward()
+    w.data = w.data - 0.01 * w.grad
+    print(f'第{i}次，权重初始值：{w}，(0.01 * w.grad):{0.01 * w.grad:.5f}，loss:{loss:.5f}')
+print(f'最终结果：权重：{w}，梯度：{w.grad:.5f}，loss:{loss:.5f}')
+
+# 一个张量一旦设置了自动微分，这个张量就不能直接转成numpy的ndarray对象了，需要通过detach()函数解决
+import numpy as np
+t1 = torch.tensor([10,20],requires_grad=True,dtype=torch.float)
+t2 = t1.detach()  # 通过detach()函数，拷贝一份张量然后转换，t1和t2共享内存
+print(t2.requires_grad)  # False
+n1 = t2.numpy()
+print(n1)  # [10. 20.]
