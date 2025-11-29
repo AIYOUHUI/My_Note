@@ -35,3 +35,23 @@ t2 = t1.detach()  # 通过detach()函数，拷贝一份张量然后转换，t1�
 print(t2.requires_grad)  # False
 n1 = t2.numpy()
 print(n1)  # [10. 20.]
+print('-' * 30)
+
+# 自动微分的真实应用场景
+import torch
+x = torch.ones(2,5)  # x表示特征(输入数据)
+y = torch.zeros(2,3)  # y表示标签(真实值)
+w = torch.randn(5,3,requires_grad=True)  # 初始化权重
+b = torch.randn(3,requires_grad=True)  # 初始化偏置
+print(x)
+print(y)
+print(w)
+print(b)
+z = torch.matmul(x,w) + b  # 前向传播
+criterion = torch.nn.MSELoss()  # 定义损失函数
+loss = criterion(z,y)
+loss.backward()  # 进行自动微分
+print(f'w的梯度：{w.grad}')  # 打印w用来更新的梯度
+print(f'b的梯度：{b.grad}')  # 打印b用来更新的梯度
+# 后续通过w新 = w旧 - 学习率 * 梯度来更新梯度
+print('-' * 30)
