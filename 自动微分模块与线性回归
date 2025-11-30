@@ -55,3 +55,73 @@ print(f'w的梯度：{w.grad}')  # 打印w用来更新的梯度
 print(f'b的梯度：{b.grad}')  # 打印b用来更新的梯度
 # 后续通过w新 = w旧 - 学习率 * 梯度来更新梯度
 print('-' * 30)
+
+# 导入相关模块
+import torch
+from torch.utils.data import TensorDataset  # 构造数据集对象
+from torch.utils.data import DataLoader  # 数据加载器
+from torch import nn  # nn模块中有平方损失函数和假设函数
+from torch import optim  # optim模块中有优化器函数
+from sklearn.datasets import make_regression  # 创建线性回归模型数据集
+import matplotlib.pyplot as plt
+
+# 定义函数，创建线性回归样本数据
+def create_dataset():
+    x,y,coef = make_regression(
+        n_samples = 100,
+        n_features = 1,
+        noise = 1,
+        coef = True,
+        bias = 14.5,
+        random_state = 3
+    )
+    x = torch.tensor(x,dtype=torch.float32)
+    y = torch.tensor(y,dtype=torch.float32)
+    return x,y,coef
+
+# 定义函数，表示模型训练
+def train(x,y,coef):
+    # 创建数据集对象
+    dataset = TensorDataset(x,y)
+    # 创建数据加载器对象，参1：数据集对象，参2：批次大小，参3：是否打乱数据
+    dataloader = DataLoader(dataset,batch_size=16,shuffle=True)
+    # 创建初始的线性回归模型，参1：输入特征维度，参2：输出特征维度
+    model = nn.Linear(1,1)
+    # 创建损失函数对象
+    criterion = nn.MSELoss()
+    # 创建优化器对象，参1：模型参数，参2：学习率
+    optimizer = optim.SGD(model.parameters(),lr=0.01)
+    # 具体的训练过程
+    # 定义变量：训练轮数，每轮的平均损失值，训练总损失值，训练的样本数
+    epochs,loss_list,total_loss,total_sample = 100,[],0.0,0
+    # 开始训练，按轮训练
+    for epoch in range(epochs):
+        # 每轮是分批次训练的，所以从数据加载器中获取批次数据
+        for train_x,train_y in dataloader:  # 7批(16,16,16,16,16,16,4)
+            # 模型预测
+            y_pred = model(train_x)
+            # 计算每批的平均损失
+            loss = criterion(y_pred,train_y.reshape(-1,1))  # -1表示自动计算
+            # 计算总损失和样本批次数
+            total_loss += loss.item()
+            total_sample += 1
+            # 梯度清零 + 反向传播 + 梯度更新
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+        # 把本轮的平均损失值添加到列表中
+        loss_list.append(total_loss / total_sample)
+        print(f'轮数：{epoch + 1},平均损失值：{total_loss / total_sample}')
+    # 打印最终的训练结果
+    print(f'模型参数，权重：{model.weight}，偏置：{model.bias}')
+
+    # 绘制损失曲线
+    plt.plot(range(epochs),loss_list)
+    plt.title('figure')
+    plt.grid()  # 绘制网格线
+    plt.show()
+
+if __name__ == '__main__':
+    x,y,coef = create_dataset()  # 创建数据集
+    train(x,y,coef)  # 模型训练
+    print(f'检验线性回归模型训练效果最直接的方式就是检验coef：{coef}')  # 最终权重近似于coef
