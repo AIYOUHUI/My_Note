@@ -31,3 +31,8 @@ DCL：数据控制语言，用来创建数据库用户、控制数据库的访�
 查询所有字段：select * from 表名
 设置别名：select 字段1 as 别名1,字段2 as 别名2... from 表名
 去除重复记录：select distinct 字段列表 from 表名
+条件查询：select 字段列表 from 表名 where 条件列表
+聚合函数指的是，将一列数据作为一个整体，进行纵向计算    count->统计数量  max/min->最大/小值  avg->平均值  sum->求和
+聚合函数用法：select 聚合函数(字段列表) from 表名
+分组查询：select 字段列表 from 表名 where 条件 group by 分组字段名 having 分组后过滤条件
+排序查询：select 字段列表 from 表名 order by 字段1 排序方式1,字段2 排序方式2  asc->升序 desc->降序  多字段排序中当第一个字段值相同才会根据第二个字段排序
