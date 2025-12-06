@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 单标签：<br>换行 <hr>水平线 -->
+    <!-- 文本格式化标签：<strong>加粗 <em>倾斜 <ins>下划线 <del>删除线 -->
+    <!-- 图像标签(单标签)：在网页中插入图片 <img src="图片的URL"> src用于指定图像的位置和名称 -->
+    <img src="./01.png">
+    <img src="./02.png">
+    <!-- 图像标签的属性：alt：替换文本，图片无法显示的时候显示文字  title：提示文本，鼠标悬停在图片上面的时候显示文字  width/height：表示图片的宽度和高度 -->
+    <img src="./03.png" alt="这是深度学习的中某段代码的输出结果">
+    <img src="./01.png" title="这是燕云十六声">
+    <img src="./01.png" width="600" height="600">
+</body>
+</html>
+
