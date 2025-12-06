@@ -39,3 +39,23 @@
     <video src="./video.mp4" controls loop muted autoplay></video>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>燕云十六声</title>
+</head>
+<body>
+    <h1>
+        燕云十六声
+    </h1>
+    <hr><p>总体质量不错，<a href="#">点击此处跳转百度</a> 但是页面元素过多。</p>
+    <img src="./01.png" alt="这是燕云十六声的游戏界面" width="500">
+    <h2>学习计划</h2>
+    <p>要个屁的计划，就TM干就完了。</p>
+    <h3>今晚几点回去</h3>
+    <p><em>想几点回去</em><ins>就几点回去。</ins></p>
+</body>
+</html>
