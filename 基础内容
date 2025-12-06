@@ -18,3 +18,24 @@
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 相对路径：从当前文件位置出发查找目标文件  绝对路径：从盘符出发查找目标文件  文件夹名字/：表示进入该文件夹里面  ./：表示当前文件所在文件夹  ../：表示进入当前文件的上一级文件夹 -->
+    <img src="D:/code/web_development/01.png" width="500">
+    <img src="https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/chat/static/image/logo-icon-white-bg.72df0b1a.png">
+    <!-- 超链接标签：点击跳转到其他页面  herf属性值是跳转地址，是超链接的必须属性  target="_blank"表示在新窗口跳转页面 -->
+    <a href="https://www.baidu.com">点击此处跳转到百度</a>
+    <a href="https://www.baidu.com" target="_blank">点击此处在新窗口跳转页面</a>
+    <!-- 在开发初期，不知道超链接的跳转地址，href属性值写#，表示空链接，不会跳转 -->
+    <!-- 音频标签：src：音频URL  controls：显示音频控制面板  loop：循环播放  autoplay：自动播放 -->
+    <audio src="./music.mp3" controls="controls" loop autoplay></audio>
+    <!-- 视频标签：src：视频URL  muted：静音播放 -->
+    <video src="./video.mp4" controls loop muted autoplay></video>
+</body>
+</html>
