@@ -36,3 +36,6 @@ DCL：数据控制语言，用来创建数据库用户、控制数据库的访�
 聚合函数用法：select 聚合函数(字段列表) from 表名
 分组查询：select 字段列表 from 表名 where 条件 group by 分组字段名 having 分组后过滤条件
 排序查询：select 字段列表 from 表名 order by 字段1 排序方式1,字段2 排序方式2  asc->升序 desc->降序  多字段排序中当第一个字段值相同才会根据第二个字段排序
+分页查询：select 字段列表 from 表名 limit 起始索引,查询记录数   起始索引从0开始  起始索引 = (查询页码-1) * 每页显示记录数
+DQL编写顺序：select -> from -> where -> group by -> having -> order by -> limit
+DQL执行顺序：from -> where -> group by -> having -> select -> order by -> limit
