@@ -59,3 +59,69 @@
     <p><em>想几点回去</em><ins>就几点回去。</ins></p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 列表：布局内容排列整齐的区域  列表分类：无序列表、有序列表、定义列表 -->
+    <!-- 无序列表：布局排列整齐的不需要规定顺序的区域  标签：ul嵌套li  ul是无序列表  li是列表条目 -->
+    <ul>
+        <li>Only when..., can...gain lifelong benefits and have a promising and helpful future.</li>
+        <li>Secondly, Numerous higher achievers'life stories have persuaded us that...is an engine which drives both our study and future career.</li>
+        <li>Meanwhile, based on a survey, a growing number of youngsters/kids/students admit that it is advisable/irrational to..., provided that...</li>
+        <li>先到此为止吧！</li>
+    </ul>
+    <!-- 有序列表：布局排列整齐的需要规定顺序的区域   标签：ol嵌套li  ol是有序列表  li是列表条目 -->
+    <ol>
+        <li>In the contemporary society, it is a common phenomenon for...to...</li>
+        <li>There are many complicated factors/clear reasons leading to this phenomenon, and the following are the most representative.</li>
+        <li>To begin with, it is an increasing amount of negative information that causes...not to...</li>
+        <li>先到此为止吧！</li>
+    </ol>
+    <!-- 定义列表：dl嵌套dt和dd  dl是定义列表  dt是定义列表的标题  dd是定义列表的描述 -->
+    <dl>
+        <dt>
+            这是英语作文模板
+        </dt>
+        <dd>
+            Last but not least, doing our best to..., with no doubt, will foster concrete skills, ensure more fruitful results and enable us to go further on the way to success.
+        </dd>
+    </dl>
+    <!-- 表格：与EXCEL表格类似  标签：table嵌套tr(行)  tr嵌套th(表头单元格)/td(内容单元格) -->
+    <table border="1">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>30</td>
+        </tr>
+    </table><hr>
+    <!-- 表格结构标签：把内容划分区域，让表格结构更加清晰 -->
+    <!-- thead：表格头部  tbody：表格主体  tfoot：表格底部 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
