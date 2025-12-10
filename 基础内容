@@ -175,3 +175,86 @@
     <input type="checkbox">你帅吗？
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 下拉菜单：select嵌套option -->
+    城市：
+    <select>
+        <option>北京</option>
+        <option>芜湖</option>
+        <option>南京</option>
+        <option selected>上海</option>
+    </select>
+    <hr>
+    <!-- 文本域：多行输入文本的表单控件  textarea双标签 -->
+    <textarea>请输入评论：</textarea>
+    <!-- label标签：网页中某个标签的说明文本 -->
+    <!-- label标签增大点击范围 -->
+    <!-- 写法一：label标签只包裹内容，不包裹表单控件，设置label标签的for属性值和表单控件的id属性值相同 -->
+    <input type="radio" name="gender" id="man"><label for="man">男</label>
+    <!-- 写法二：使用label标签包裹内容和表单控件，不需要属性 -->
+    <label><input type="radio" name="gender">女</label><hr>
+    <!-- 按钮：button  type：submit：点击后可以把数据提交到后台，这是默认功能  reset：重置按钮  button：默认没有功能 -->
+    <!-- 需要form标签重置功能才能使用 -->
+    <form>
+        用户名：
+        <input type="text"><br><br>
+        密码：
+        <input type="password"><br><br>
+        <button type="reset">点击这里清空内容</button>
+    </form><hr>
+    <!-- 无语义布局标签：div：独占一行  span：不换行 -->
+    <div>我好帅</div>
+    <div>我笑了</div>
+    <span>我好帅</span>
+    <span>你好丑</span>
+    <hr>
+    <!-- 字符实体：在网页中显示预留实体   空格：&nbsp  <小于号：&lt  >大于号：&gt -->
+    你&lt;这个年纪&gt;谁的着&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;觉？<hr>
+    <ul>
+        <li>
+            <img src="./01.png" width="500"><h3>这是燕云十六声</h3>
+        </li>
+        <br>
+        <li>
+            <img src="./02.png" width="500"><h3>这是深度学习某个输出结果</h3>
+        </li>
+    </ul>
+    <hr>
+    <form>
+        <h1>注册信息</h1>
+        <h3>个人信息</h3>
+        姓名：<input type="text" placeholder="请输入用户名"><br>
+        密码：<input type="text" placeholder="请输入密码"><br>
+        性别：<label><input type="radio" name="gender">男</label> <label><input type="radio" name="gender">女</label>
+        居住城市：
+        <select>
+            <option selected="selected">北京</option>
+            <option>上海</option>
+            <option>合肥</option>
+        </select>
+        <br><br>
+        在校时间
+        <select>
+            <option>2000</option>
+            <option>2001</option>
+        </select>
+        --
+        <select>
+            <option>2024</option>
+            <option>2025</option>
+        </select><br>
+        工作描述：
+        <textarea>简要介绍你的工作经历：</textarea>
+        <button>注册</button>
+        <button>重置</button>
+    </form>
+</body>
+</html>
