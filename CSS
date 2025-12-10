@@ -47,3 +47,40 @@
     <div id="yellow" class="font-size">这是黄色</div>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* 通配符选择器：查找页面所有标签，设置相同样式 */
+    * {
+        color:black;
+    }
+    </style>
+
+    <style>
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+        .orange {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p>你是谁</p><hr>
+    <p>我是小六</p>
+    <p>看见mono了吗</p>
+
+    <!-- 属性：width：宽度  height：高度  background-color：背景色 -->
+    <div class="red">div1</div>
+    <div class="orange">div2</div>
+</body>
+</html>
