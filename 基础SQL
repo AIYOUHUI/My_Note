@@ -39,3 +39,10 @@ DCL：数据控制语言，用来创建数据库用户、控制数据库的访�
 分页查询：select 字段列表 from 表名 limit 起始索引,查询记录数   起始索引从0开始  起始索引 = (查询页码-1) * 每页显示记录数
 DQL编写顺序：select -> from -> where -> group by -> having -> order by -> limit
 DQL执行顺序：from -> where -> group by -> having -> select -> order by -> limit
+2.4 DCL
+创建用户：create user '用户名'@'主机名'  当前主机：localhost  任意主机：%
+设置或修改用户密码：alter user '用户名'@'主机名' identified by '密码'
+权限控制：all:所有权限  select:查询数据  insert:插入数据  update:修改数据  delete:删除数据  alter:修改表  drop:删除数据库  create:创建数据库
+查询权限：show grants for '用户名'@'主机名'
+授权权限：grant 权限列表 on 数据库名.表名 to '用户名'@'主机名'
+撤销权限：revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名' 
