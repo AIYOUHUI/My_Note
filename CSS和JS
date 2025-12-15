@@ -103,3 +103,6 @@ console.log(typeof '123'); // string
 console.log(typeof true); // boolean
 console.log(typeof obj); // object
 console.log(typeof undefined); // undefined 
+// == 是松散相等，他会将两边操作数转换为相同类型再比较值是否相等
+// === 是严格相等，不做类型转换，如果类型不同，则判定为不相等
+// 对象.hasOwnProperty(input)表示判断 input 是否为该对象中的键
