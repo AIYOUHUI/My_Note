@@ -46,3 +46,4 @@ DQL执行顺序：from -> where -> group by -> having -> select -> order by -> l
 查询权限：show grants for '用户名'@'主机名'
 授权权限：grant 权限列表 on 数据库名.表名 to '用户名'@'主机名'
 撤销权限：revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名' 
+删除用户：drop user '用户名'@'主机名';
