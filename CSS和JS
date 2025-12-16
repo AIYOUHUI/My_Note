@@ -106,3 +106,41 @@ console.log(typeof undefined); // undefined
 // == 是松散相等，他会将两边操作数转换为相同类型再比较值是否相等
 // === 是严格相等，不做类型转换，如果类型不同，则判定为不相等
 // 对象.hasOwnProperty(input)表示判断 input 是否为该对象中的键
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- DOM是处理可扩展标记语言的标准编程接口 -->
+    <div id = time>2025-12-17</div>
+    <ul>
+        <li>我帅吗</li>
+        <li>你好帅</li>
+    </ul>
+    <ol id = ol>
+        <li>
+            今天天气好好
+            好个锤子
+        </li>
+        <li>
+            你是谁呀
+        </li>
+    </ol>
+    <script>
+        var timer = document.getElementById("time") // 参数必须是字符串
+        console.log(timer)
+        console.log(typeof timer) // object
+        var lis = document.getElementsByTagName("li") // 获取某类标签元素
+        console.log(lis[1])
+        for(var i=0;i<lis.length;i++) {
+            console.log(lis[i])
+        }
+        var ol = document.getElementById("ol") // 父元素必须是单个对象
+        console.log(ol.getElementsByTagName("li"))
+    </script>
+</body>
+</html>
