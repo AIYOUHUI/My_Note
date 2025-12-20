@@ -47,3 +47,23 @@ DQL执行顺序：from -> where -> group by -> having -> select -> order by -> l
 授权权限：grant 权限列表 on 数据库名.表名 to '用户名'@'主机名'
 撤销权限：revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名' 
 删除用户：drop user '用户名'@'主机名';
+3.0 多表查询
+select * from emp,dept where emp.dept_id = dept.id;
+隐式内连接查询每一个员工的姓名及关联的部门名称：select emp.name,dept.name from emp,dept where emp.dept_id = dept.id;
+显示内连接查询每一个员工的姓名及关联的部门名称：select e.name,d.name from emp e join dept d on e.dept_id = d.id;
+左外连接查询emp表中的所有数据及对应的部门信息：select e.*,d.name from emp e left join dept d on e.dept_id = d.id;
+右外连接查询dept表中的所有数据及对应的员工信息：select d.*,e.* from emp e right join dept d on e.dept_id = d.id; 
+自连接查询员工及所属领导：select a.name,b.name from emp a, emp b where a.managerid = b.id;
+自连接查询员工及领导的名字，若没有领导也要查询出来：select a.name '员工',b.name '领导' from emp a left join emp b on a.managerid = b.id
+联合查询就是把多次查询结果合并起来形成一个新的查询结果集，将薪资低于5000的员工和年龄大于50的员工全部查询出来：
+select * from emp where salary < 5000 
+union all(直接将查询的结果合并,若使用union,则会去除重复的部分)
+select * from emp where age > 50;
+子查询是在SQL语句中嵌套 select 语句，
+根据子查询的结果不同，分为标量子查询(子查询结果为单值)，列子查询(子查询结果为一列)，行子查询，表子查询(子查询结果为多行多列)
+标量子查询查询销售部的所有员工信息：select * from emp where dept_id = (select id from dept where name = '销售部')
+列子查询查询销售部和市场部的所有员工信息：select * from emp where dept_id in (select id from dept where name = '销售部' or name = '市场部');
+列子查询查询比财务部所有人工资都高的员工信息：all表示子查询返回列表的所有值都必须满足
+select * from emp where salary > all(select salary from emp where dept_id = (select id from dept where name = '财务部'));
+行子查询查询与小明的薪资和直属领导相同的员工信息：select * from emp where (salary,managerid) = (select salary,managerid from emp where name = '小明');
+表子查询查询与小红和小蓝的职位和薪资相同的员工信息：select * from emp where (job,salary) in (select job,salary from emp where name = '小红' or name = '小明');
