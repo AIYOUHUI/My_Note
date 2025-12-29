@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>document</title>
+        <style>
+            .nav {
+                list-style:none;
+                padding:0;
+                margin:0;
+                background:#e0e0e0;
+                overflow:hidden
+            }
+
+            .nav li {
+                float:left;
+                margin:0 20px;
+            }
+
+            .nav a {
+                display:block;
+                padding:10px 20px;
+                color:#333;
+                text-decoration:none;
+                font-weight:bold
+            }
+
+            .nav a:hover {
+                background:#9fba5a;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Flash</a></li>
+            <li><a href="#">Dreamweaver</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Photoshop</a></li>
+        </ul>
+        <ul>
+            <li>区块</li>
+            <li>背景</li>
+            <li>区块</li>
+            <li>容器</li>
+            <li>边框
+                <ul>
+                    <li>上边框</li>
+                    <li>下边框</li>
+                    <li>左边框</li>
+                    <li>右边框</li>
+                </ul>
+            </li>
+            <li>列表</li>
+            <li>定位</li>
+            <li>扩展</li>
+        </ul>
+    </body>
+</html>
