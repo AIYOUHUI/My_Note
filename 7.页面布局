@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>我的答卷</title>
+    <link rel="stylesheet" href="01.css">
+  </head>
+  <body>
+    <div class="title"><h1>我的上机考试作业</h1></div>
+    <div class="nav">
+      <a href="003.html" target="_blank">作品一</a>
+      <a href="004.html" target="_blank">作品二</a>
+      <a href="005.html" target="_blank">作品三</a>
+      <a href="006.html" target="_blank">作品四</a>
+    </div>
+    <div class="wrap">
+      <div class="card">
+        <img src="./01.png" onclick="window.open('003.html')">
+        <button class="btn" onclick="vote(this)">投票</button>
+        <span class="count">0</span>
+      </div>
+      <div class="card">
+        <img src="./02.png" onclick="window.open('004.html')">
+        <button class="btn" onclick="vote(this)">投票</button>
+        <span class="count">0</span>
+      </div>
+      <div class="card">
+        <img src="./01.png" onclick="window.open('005.html')">
+        <button class="btn" onclick="vote(this)">投票</button>
+        <span class="count">0</span>
+      </div>
+      <div class="card">
+        <img src="./02.png" onclick="window.open('006.html')">
+        <button class="btn" onclick="vote(this)">投票</button>
+        <span class="count">0</span>
+      </div>
+    </div>
+    <div class="foot">
+      <a href="mailto:3282525772@qq.com">联系作者</a>
+      <span class="close" onclick="window.close()">关闭窗口</span>
+    </div>
+    <script>
+      function vote(btn) {
+        alert('投票成功');
+        let count = btn.nextElementSibling;
+        count.innerText = parseInt(count.innerText) + 1;
+      }
+    </script>
+  </body>
+</html>
+
+* {margin:0;padding:0;box-sizing:border-box;}
+.title {text-align:center;padding:20px 0;}
+.nav {text-align:center;padding:10px 0;}
+.nav a {margin:0 20px;}
+.wrap {display:flex;width:100%;padding:0 20px;gap:20px;}
+.card {width:25%;text-align:center;}
+.card img {width:100%;height:auto;margin-bottom:10px;}
+.foot {text-align:center;padding:20px 0;margin-top:20px;}
+.foot a {margin-right:20px;}
