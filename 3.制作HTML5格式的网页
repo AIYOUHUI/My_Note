@@ -2,35 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>元日</title> <!-- 得分点1：网页标题 -->
+    <meta name="keywords" content="诗歌">
+    <title>1_poem.html</title>
     <style>
-        body {margin:0;padding:20px;}
-        h1, h3 {text-align:center;} /* 得分点2：标题居中 */
-        hr {border:1px dotted;} /* 得分点3：虚线分隔 */
-        table {margin:0 auto;} /* 得分点4：诗歌+图片居中 */
-        td {padding:10px;vertical-align:middle;}
-        .poem p {font-family:"仿宋";} /* 得分点5：仿宋字体 */
-        a {color:red;text-decoration:none;} /* 得分点6：红色无下划线链接 */
-        a:hover {text-decoration:underline;} /* 得分点6：hover下划线 */
-        audio {display:block;margin:20px auto;} /* 得分点7：音频居中 */
-        div:last-child {text-align:center;} /* 得分点8：版权居中 */
+        body {background: #F4F4F4;margin: 0;padding: 20px;}
+        h1, h3 {text-align: center;margin: 10px 0;}
+        hr {border: 3px dotted #F0A95D;margin: 10px 0;}
+        table {border: none;margin: 0 auto;}
+        td {border: none;padding: 20px;vertical-align: middle;text-align: center;}
+        td img {max-width: 300px; height: auto;}
+        .s {background: url(./cracker.jpeg) no-repeat left; min-width: 300px;}
+        .p p {color: #CA000B;font-family: "仿宋";font-size: 20px;line-height: 1.8;margin: 5px 0;} 
+        audio {display: block;margin: 20px auto;}
+        .f {text-align: center;margin-top: 20px;} 
+        .f a {color: red;text-decoration: none;}
+        .f a:hover {text-decoration: underline;}
     </style>
-</head> 
+</head>
 <body>
-    <h1>元日</h1>
-    <h3>宋代：王安石</h3>
-    <hr> <!-- 得分点3：虚线分隔 -->
-    <table> <!-- 得分点4：诗歌+图片并列居中 -->
+    <h1>元日</h1><h3>宋代：王安石</h3><hr>
+    <table>
         <tr>
-            <td><div class="poem"> <!-- 得分点5：仿宋字体 --><p>爆竹声中一岁除，</p><p>春风送暖入屠苏。</p><p>千门万户曈曈日，</p><p>总把新桃换旧符。</p></div></td>
-            <td><img src="./01.png" width="300"> <!-- 得分点4：图片 --></td>
+            <td class="s">
+                <div class="p">
+                    <p>爆竹声中一岁除，</p><p>春风送暖入屠苏。</p><p>千门万户曈曈日，</p><p>总把新桃换旧符。</p>
+                </div>
+            </td>
+            <td>
+                <img src="./01.png" alt="spring">
+            </td>
         </tr>
     </table>
-    <audio controls> <!-- 得分点7：音频 -->
-        <source src="./music.mp3">
-    </audio>
-    <div> <!-- 得分点8：版权信息 -->
-    版权所有 © <a href="https://www.chzu.edu.cn" target="_blank">滁州学院</a> | 技术支持：<a href="https://www.chzu.edu.cn" target="_blank">向未来工作室</a>
+    <audio controls><source src="./music.mp3"></audio>
+    <div class="f">
+        版权所有 © <a href="https://www.chzu.edu.cn" target="_blank">滁州学院</a> | 皖ICP备000000号<br>
+        技术支持：<a href="mailto:3282525772@qq.com">向未来工作室</a>
     </div>
 </body>
 </html>
