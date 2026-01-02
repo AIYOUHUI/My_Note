@@ -1,59 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>document</title>
+    <title>抽奖功能</title>
     <style>
-      h3 {
-        font-family:宋体;
-        font-size:1.75em
-      }
-
-      form {
-        margin:0 auto;
-        width:300px;
-        line-height:2
-      }
-
-      label {
-        display:inline-block;
-        width:80px
-      }
+        #btn {padding: 10px 20px;background: #ff4400;color: #fff;border: none;cursor: pointer;}
+        #res {margin: 20px 0;}
+        #img {display: none; max-width: 300px; height: auto; margin: 0 auto;}
     </style>
-  </head>
-  <body>
-    <h3 align="center">用户注册</h3>
-    <form onsubmit="return c()">
-      <p><label>用户名：</label><input type="text" id="u"></p>
-      <p><label>密码：</label><input type="password" id="p"></p>
-      <p><label>重复密码：</label><input type="password" id="rp"></p>
-      <p><label>性别：</label><input type="radio" name="gender" checked="checked" id="g" value="男">男<input type="radio" name="gender" value="女">女</p>
-      <p><label>教育水平：</label>
-        <select id="e">
-          <option>博士</option>
-          <option>硕士</option>
-          <option selected>本科</option>
-          <option>大专</option>
-          <option>其他</option>
-        </select>
-      </p>
-      <p><button type="submit">提交</button><button type="reset">重置</button></p>
-    </form>
+</head>
+<body align="center">
+    <button id="btn">抽奖</button>
+    <div id="res"></div>
+    <img id="img" src="./01.png">
     <script>
-      function c() {
-        let u = document.getElementById('u').value;
-        let p = document.getElementById('p').value;
-        let rp = document.getElementById('rp').value;
-        let g = document.querySelector('input[name="gender"]:checked').value;
-        let e = document.getElementById('e').value;
-        if(!u) {alert("用户名为空");return false;}
-        if(!p) {alert("密码为空");return false;}
-        if(!rp){alert("重复密码为空");return false;}
-        if(p!==rp) {alert("密码不一致");return false;}
-        alert("您的用户名为"+u+"\n您的密码为"+p+"\n您的性别为"+g+"\n您的教育水平为"+e);
-        alert("注册成功！");
-        return false;
-      }
+        document.getElementById('btn').onclick = function() {
+            let nums = [];
+            while(nums.length < 5) {
+                let num = Math.floor(Math.random()*100)+1;
+                if(!nums.includes(num)) nums.push(num);
+            }
+            document.getElementById('res').innerText = '恭喜以下用户获得一等奖：' + nums.join(',');
+            document.getElementById('img').style.display = 'block';
+        };
     </script>
-  </body>
+</body>
 </html>
