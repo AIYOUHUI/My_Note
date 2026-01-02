@@ -1,59 +1,43 @@
 <!DOCTYPE html>
-  <head>
+<html>
+<head>
     <meta charset="UTF-8">
-    <title>我的答卷</title>
-    <link rel="stylesheet" href="01.css">
-  </head>
-  <body>
-    <div class="title"><h1>我的上机考试作业</h1></div>
-    <div class="nav">
-      <a href="003.html" target="_blank">作品一</a>
-      <a href="004.html" target="_blank">作品二</a>
-      <a href="005.html" target="_blank">作品三</a>
-      <a href="006.html" target="_blank">作品四</a>
-    </div>
-    <div class="wrap">
-      <div class="card">
-        <img src="./01.png" onclick="window.open('003.html')">
-        <button class="btn" onclick="vote(this)">投票</button>
-        <span class="count">0</span>
-      </div>
-      <div class="card">
-        <img src="./02.png" onclick="window.open('004.html')">
-        <button class="btn" onclick="vote(this)">投票</button>
-        <span class="count">0</span>
-      </div>
-      <div class="card">
-        <img src="./01.png" onclick="window.open('005.html')">
-        <button class="btn" onclick="vote(this)">投票</button>
-        <span class="count">0</span>
-      </div>
-      <div class="card">
-        <img src="./02.png" onclick="window.open('006.html')">
-        <button class="btn" onclick="vote(this)">投票</button>
-        <span class="count">0</span>
-      </div>
-    </div>
-    <div class="foot">
-      <a href="mailto:3282525772@qq.com">联系作者</a>
-      <span class="close" onclick="window.close()">关闭窗口</span>
-    </div>
+    <title>用户注册</title>
+    <style>
+        h3 {font-family: 宋体; font-size: 1.75em; text-align: center;}
+        form {margin: 0 auto; width: 300px; line-height: 2;}
+        label {display: inline-block; width: 80px;}
+    </style>
+</head>
+<body>
+    <h3>用户注册</h3>
+    <form onsubmit="return check()">
+        <p><label>用户名：</label><input type="text" id="u"></p>
+        <p><label>密码：</label><input type="password" id="p"></p>
+        <p><label>重复密码：</label><input type="password" id="rp"></p>
+        <p><label>性别：</label><input type="radio" name="g" checked value="男">男<input type="radio" name="g" value="女">女</p>
+        <p><label>教育水平：</label>
+            <select id="e">
+                <option>博士</option><option>硕士</option><option selected>本科</option><option>大专</option><option>其他</option>
+            </select>
+        </p>
+        <p><button type="submit">提交</button><button type="reset">重置</button></p>
+    </form>
     <script>
-      function vote(btn) {
-        alert('投票成功');
-        let count = btn.nextElementSibling;
-        count.innerText = parseInt(count.innerText) + 1;
-      }
+        function check() {
+            let u = document.getElementById('u').value;
+            let p = document.getElementById('p').value;
+            let rp = document.getElementById('rp').value;
+            let g = document.querySelector('input[name="g"]:checked').value;
+            let e = document.getElementById('e').value;
+            if(!u) {alert("用户名为空"); return false;}
+            if(!p) {alert("密码为空"); return false;}
+            if(!rp) {alert("重复密码为空"); return false;}
+            if(p!==rp) {alert("密码不一致"); return false;}
+            alert("用户名：" + u + "\n密码：" + p + "\n性别：" + g + "\n教育水平：" + e);
+            alert("注册成功！");
+            return false;
+        }
     </script>
-  </body>
+</body>
 </html>
-
-* {margin:0;padding:0;box-sizing:border-box;}
-.title {text-align:center;padding:20px 0;}
-.nav {text-align:center;padding:10px 0;}
-.nav a {margin:0 20px;}
-.wrap {display:flex;width:100%;padding:0 20px;gap:20px;}
-.card {width:25%;text-align:center;}
-.card img {width:100%;height:auto;margin-bottom:10px;}
-.foot {text-align:center;padding:20px 0;margin-top:20px;}
-.foot a {margin-right:20px;}
